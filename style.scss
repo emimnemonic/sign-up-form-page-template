@@ -1,0 +1,141 @@
+// Fonts
+$big-font: 'Oleo Script', cursive;
+$small-font: 'Open Sans', sans-serif;
+// Colors
+$jack: #00A08A;
+$peter: #F2AD00;
+$francis: rgba(255, 0, 0, 0.45);
+// Mixins
+@mixin breakpoint($point) {
+    @if $point==large {
+        @media only screen and (max-width: 1280px) {
+            @content;
+        }
+    }
+    @else if $point==medium {
+        @media only screen and (max-width: 980px) {
+            @content;
+        }
+    }
+    @else if $point==small {
+        @media only screen and (max-width: 767px) {
+            @content;
+        }
+    }
+    @else if $point==small-landscape {
+        @media only screen and (max-width: 767px) and (orientation: landscape) {
+            @content;
+        }
+    }
+    @else if $point==xsmall {
+        @media only screen and (max-width: 480px) and (orientation: portrait) {
+            @content;
+        }
+    }
+    @else if $point==xxsmall {
+        @media only screen and (max-width: 320px) and (orientation: portrait) {
+            @content;
+        }
+    }
+    @else if $point==xlarge {
+        @media only screen and (min-width: 1281px) {
+            @content;
+        }
+    }
+}
+@mixin auto-center {
+    margin: {
+        left: auto;
+        right: auto;
+    }
+}
+@mixin box-sizing($type) {
+    -webkit-box-sizing: $type;
+    -moz-box-sizing: $type;
+    box-sizing: $type;
+}
+@mixin flexbox {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+@mixin flex($values) {
+    @include flexbox;
+    -webkit-box-flex: $values;
+    -moz-box-flex: $values;
+    -ms-flex: $values;
+    -webkit-flex: $values;
+    flex: $values;
+}
+@mixin flex-direction($dir) {
+    @if $dir==column {
+        -webkit-flex-direction: vertical;
+        -moz-flex-direction: vertical;
+        -ms-flex-direction: column;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+    }
+    @else {
+        -webkit-flex-direction: horizontal;
+        -moz-flex-direction: horizontal;
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+    }
+}
+@mixin flex-space($justify) {
+    -webkit-justify-content: $justify;
+    justify-content: $justify;
+}
+@mixin flex-align($align) {
+    -webkit-align-items: $align;
+    align-items: $align;
+}
+@mixin transition($transition...) {
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -ms-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+// Base
+html {
+    @include box-sizing(border-box);
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-size: 1rem;
+    @include breakpoint(xlarge) {
+        font-size: 18px;
+    }
+    @include breakpoint(medium) {
+        font-size: 14px;
+    }
+    @include breakpoint(small) {
+        font-size: 12px;
+    }
+    @include breakpoint(xsmall) {
+        font-size: 10px;
+    }
+    @include breakpoint(xxsmall) {
+        font-size: 6px
+    }
+}
+*,
+*:before,
+*:after {
+    @include box-sizing(inherit);
+}
+body {
+    background-color: $jack;
+    font: 2.25rem/3.375rem 300 $small-font;
+    color: $peter;
+    margin: 0;
+    padding: 0;
+}
+a {
+    color: $peter;
+    text-decoration: none;
+}
