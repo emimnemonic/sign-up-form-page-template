@@ -54,45 +54,6 @@ $francis: rgba(255, 0, 0, 0.45);
     -moz-box-sizing: $type;
     box-sizing: $type;
 }
-@mixin flexbox {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-}
-@mixin flex($values) {
-    @include flexbox;
-    -webkit-box-flex: $values;
-    -moz-box-flex: $values;
-    -ms-flex: $values;
-    -webkit-flex: $values;
-    flex: $values;
-}
-@mixin flex-direction($dir) {
-    @if $dir==column {
-        -webkit-flex-direction: vertical;
-        -moz-flex-direction: vertical;
-        -ms-flex-direction: column;
-        -webkit-flex-direction: column;
-        flex-direction: column;
-    }
-    @else {
-        -webkit-flex-direction: horizontal;
-        -moz-flex-direction: horizontal;
-        -ms-flex-direction: row;
-        -webkit-flex-direction: row;
-        flex-direction: row;
-    }
-}
-@mixin flex-space($justify) {
-    -webkit-justify-content: $justify;
-    justify-content: $justify;
-}
-@mixin flex-align($align) {
-    -webkit-align-items: $align;
-    align-items: $align;
-}
 @mixin transition($transition...) {
     -webkit-transition: $transition;
     -moz-transition: $transition;
@@ -111,13 +72,13 @@ html {
         font-size: 18px;
     }
     @include breakpoint(medium) {
-        font-size: 14px;
-    }
-    @include breakpoint(small) {
         font-size: 12px;
     }
-    @include breakpoint(xsmall) {
+    @include breakpoint(small) {
         font-size: 10px;
+    }
+    @include breakpoint(xsmall) {
+        font-size: 8px;
     }
     @include breakpoint(xxsmall) {
         font-size: 6px
@@ -130,7 +91,7 @@ html {
 }
 body {
     background-color: $jack;
-    font: 2.25rem/3.375rem 300 $small-font;
+    font: 2.25rem/3.375rem $small-font;
     color: $peter;
     margin: 0;
     padding: 0;
@@ -138,4 +99,54 @@ body {
 a {
     color: $peter;
     text-decoration: none;
+}
+.box {
+    max-width: 66.6%;
+    background-color: $francis;/*
+    @include flexbox;
+    @include flex-direction(column);
+    @include flex-align(flex-start);
+    @include flex-space(space-around);*/
+    height: 60vh;
+    @include auto-center;
+    top: 50%;
+    transform: translateY(20vh);
+    padding: 2rem 4rem;
+    @include breakpoint(small) {
+        max-width: 90%;
+        height: 80vh;
+        transform: translateY(10vh);
+    }/*
+    * {
+        @include flex(0 0 auto);
+    }*/
+}
+h2 {
+    font: 4rem/5.5rem $big-font;
+    color: $peter;
+    margin: 0;
+    @include breakpoint(small) {
+        padding-top: 2em;
+    }
+    @include breakpoint(small-landscape) {
+        padding-top: 0;
+    }
+}
+p {
+    font: inherit;
+    padding: 1rem 0 0;
+    @include breakpoint(xsmall) {
+        padding: 2em 0 0.5em;
+    }
+}
+input:focus {
+    outline: none;
+}
+input {
+    width: 100%;
+    background: none;
+    font: inherit;
+    color: $peter;
+    border: none;
+    border-bottom: 1px dashed $peter;
 }

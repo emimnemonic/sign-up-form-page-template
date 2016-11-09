@@ -11,13 +11,13 @@ html {
       font-size: 18px; } }
   @media only screen and (max-width: 980px) {
     html {
-      font-size: 14px; } }
+      font-size: 12px; } }
   @media only screen and (max-width: 767px) {
     html {
-      font-size: 12px; } }
+      font-size: 10px; } }
   @media only screen and (max-width: 480px) and (orientation: portrait) {
     html {
-      font-size: 10px; } }
+      font-size: 8px; } }
   @media only screen and (max-width: 320px) and (orientation: portrait) {
     html {
       font-size: 6px; } }
@@ -31,7 +31,7 @@ html {
 
 body {
   background-color: #00A08A;
-  font: 2.25rem/3.375rem 300 "Open Sans", sans-serif;
+  font: 2.25rem/3.375rem "Open Sans", sans-serif;
   color: #F2AD00;
   margin: 0;
   padding: 0; }
@@ -39,5 +39,58 @@ body {
 a {
   color: #F2AD00;
   text-decoration: none; }
+
+.box {
+  max-width: 66.6%;
+  background-color: rgba(255, 0, 0, 0.45);
+                           /*
+@include flexbox;
+@include flex-direction(column);
+@include flex-align(flex-start);
+@include flex-space(space-around);*/
+  height: 60vh;
+  margin-left: auto;
+  margin-right: auto;
+  top: 50%;
+  transform: translateY(20vh);
+  padding: 2rem 4rem;
+ /*
+* {
+    @include flex(0 0 auto);
+}*/ }
+  @media only screen and (max-width: 767px) {
+    .box {
+      max-width: 90%;
+      height: 80vh;
+      transform: translateY(10vh); } }
+
+h2 {
+  font: 4rem/5.5rem "Oleo Script", cursive;
+  color: #F2AD00;
+  margin: 0; }
+  @media only screen and (max-width: 767px) {
+    h2 {
+      padding-top: 2em; } }
+  @media only screen and (max-width: 767px) and (orientation: landscape) {
+    h2 {
+      padding-top: 0; } }
+
+p {
+  font: inherit;
+  padding: 1rem 0 0; }
+  @media only screen and (max-width: 480px) and (orientation: portrait) {
+    p {
+      padding: 2em 0 0.5em; } }
+
+input:focus {
+  outline: none; }
+
+input {
+  width: 100%;
+  background: none;
+  font: inherit;
+  color: #F2AD00;
+  border: none;
+  border-bottom: 1px dashed #F2AD00; }
 
 /*# sourceMappingURL=style.css.map */
