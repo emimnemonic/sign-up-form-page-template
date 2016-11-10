@@ -5,12 +5,40 @@ var nameBox = document.getElementById('namebox'),
     emailInput = document.getElementById('userEmail'),
     userInfo = [],
     nameVal,
-    emailVal;
-// Display first input field
-function showForm() {
-    nameBox.style.display = "block";
-    nameInput.focus();
-}
+    emailVal,
+    isMobile = {
+        Android: function () {
+            return navigator.userAgent.match(/Android/i);
+        },
+        iOS: function () {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+        },
+        BlackBerry: function () {
+            return navigator.userAgent.match(/BlackBerry/i);
+        },
+        Windows: function () {
+            return navigator.userAgent.match(/IEMobile/i);
+        },
+        Opera: function () {
+            return navigator.userAgent.match(/Opera Mini/i);
+        },
+        any: function () {
+            return (isMobile.Android() || isMobile.iOS() || isMobile.BlackBerry() || isMobile.Windows() || isMobile.Opera());
+        },
+        checkAndroid: function () {
+            if (isMobile.Android() && window.innerWidth <=767) {
+                nameBox.style.height = "400px";
+                emailBox.style.height = "400px";
+            }
+        },
+        checkMobile: function () {
+            if (!isMobile.any() && window.innerWidth >= 768) {
+                emailInput.focus();
+            }
+        }
+    };
+
+
 
 nameInput.addEventListener('keypress', function nextStep(e) {
 
@@ -23,12 +51,13 @@ nameInput.addEventListener('keypress', function nextStep(e) {
 
         // Add name input value to step two title
 
-        document.getElementById('stepTwoTitle').insertAdjacentHTML('beforeend', "<span>" + nameVal + "!</span>" );
+        document.getElementById('stepTwoTitle').insertAdjacentHTML('beforeend', "<span>" + nameVal + "!</span>");
 
-        emailInput.focus();
+
+        isMobile.checkMobile();
 
     } else if (e.keyCode == 13 && nameVal == "") {
-
+        // Box background flashes red if field is left empty
         nameBox.classList.add("blink");
         setTimeout(function () {
             if (nameBox.classList.contains("blink")) {
@@ -42,14 +71,19 @@ emailInput.addEventListener('keypress', function submit(e) {
     emailVal = document.getElementById('userEmail').value;
 
     if (e.keyCode == 13 && emailVal !== "") {
+        // Email Validations here
         userInfo.push(emailVal);
         console.log(userInfo);
         emailBox.style.display = "none";
-        confirmBox.style.display = "block";
-        document.getElementById("confirmation").classList.add("move-icon");
+
+        setTimeout(function () {
+            confirmBox.style.display = "block";
+            confirmBox.classList.add('success');
+            document.getElementById("confirmation").classList.add("move-icon");
+        }, 400);
 
     } else if (e.keyCode == 13 && emailVal == "") {
-
+        // Box background flashes red if field is left empty. will do form validations another day.
         emailBox.classList.add("blink");
         setTimeout(function () {
             if (emailBox.classList.contains("blink")) {

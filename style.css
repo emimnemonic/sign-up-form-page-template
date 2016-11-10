@@ -10,6 +10,11 @@
     transform: translateX(-40vw); }
   100% {
     transform: translateX(0); } }
+@keyframes success {
+  0% {
+    background-color: #00A08A; }
+  100% {
+    background-color: rgba(255, 0, 0, 0.45); } }
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -56,7 +61,7 @@ a {
   display: none;
   max-width: 66.6%;
   background-color: rgba(255, 0, 0, 0.45);
-  height: 60vh;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
   top: 50%;
@@ -69,6 +74,9 @@ a {
       height: 80vh;
       transform: translateY(10vh); } }
 
+#namebox {
+  display: block; }
+
 h2 {
   font: 4rem/5.5rem "Oleo Script", cursive;
   color: #F2AD00;
@@ -78,7 +86,7 @@ h2 {
       padding-top: 1em; } }
   @media only screen and (max-width: 767px) {
     h2 {
-      padding-top: 2em; } }
+      padding-top: 1em; } }
   @media only screen and (max-width: 767px) and (orientation: landscape) {
     h2 {
       padding-top: 0; } }
@@ -95,13 +103,16 @@ label {
 input:focus {
   outline: none; }
 
-input {
+input[type='text'], input[type='email'] {
+  box-shadow: none !important;
+  border: none;
   width: 100%;
   background: none;
   font: inherit;
   color: #F2AD00;
-  border: none;
-  border-bottom: 1px dashed #F2AD00; }
+  border-bottom: 1px dashed #F2AD00;
+  margin-bottom: 1em;
+  outline: none; }
 
 .icon {
   margin-left: auto;
@@ -116,6 +127,7 @@ input {
       width: 160px; } }
   @media only screen and (max-width: 480px) and (orientation: portrait) {
     .icon {
+      padding-top: 2em;
       width: 80px; } }
 
 .blink {
@@ -123,5 +135,8 @@ input {
 
 .move-icon {
   animation: swoosh 0.5s ease-in-out; }
+
+.success {
+  animation: success 0.5s linear; }
 
 /*# sourceMappingURL=style.css.map */
