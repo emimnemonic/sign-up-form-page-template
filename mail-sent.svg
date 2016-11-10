@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="183px" height="81px" viewBox="0 0 183 81" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41 (35326) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="123.906977" height="80.372093" rx="15"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="123.906977" height="80.372093" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Browser-Standard" transform="translate(-593.000000, -477.000000)" stroke="#F2AD00">
+            <g id="Confirmation" transform="translate(299.000000, 184.000000)">
+                <g id="Icon" transform="translate(297.000000, 293.000000)">
+                    <g id="Sent" transform="translate(0.000000, 14.232558)" stroke-width="6" stroke-linecap="round">
+                        <path d="M0,0 L36.8372093,0" id="Line"></path>
+                        <path d="M6.69767442,16.744186 L35.9996488,16.744186" id="Line-Copy"></path>
+                        <path d="M11.7209302,33.4883721 L36.8372093,33.4883721" id="Line-Copy-2"></path>
+                    </g>
+                    <g id="Mail" transform="translate(56.093023, 0.000000)">
+                        <use id="Rectangle" mask="url(#mask-2)" stroke-width="12" xlink:href="#path-1"></use>
+                        <path d="M8.37209302,45.2093023 L58.752262,7.42417557 C60.5202505,6.0981842 63.3866613,6.09813548 65.1547147,7.42417557 L115.534884,45.2093023" id="Triangle" stroke-width="6" transform="translate(61.953488, 25.116279) scale(1, -1) translate(-61.953488, -25.116279) "></path>
+                        <path d="M73.6744186,39.3488372 L115.534884,76.1860465 M8.37209302,76.1860465 L50.2325581,39.3488372" id="Triangle-2" stroke-width="6"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

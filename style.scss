@@ -54,12 +54,24 @@ $francis: rgba(255, 0, 0, 0.45);
     -moz-box-sizing: $type;
     box-sizing: $type;
 }
-@mixin transition($transition...) {
-    -webkit-transition: $transition;
-    -moz-transition: $transition;
-    -ms-transition: $transition;
-    -o-transition: $transition;
-    transition: $transition;
+@keyframes blink {
+    0% {
+        background-color: $francis;
+    }
+    50% {
+        background-color: rgb(255,0,0);
+    }
+    100% {
+        background-color: $francis;
+    }
+}
+@keyframes swoosh {
+    0% {
+        transform: translateX(-40vw);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 // Base
 html {
@@ -72,16 +84,16 @@ html {
         font-size: 18px;
     }
     @include breakpoint(medium) {
-        font-size: 12px;
+        font-size: 14px;
     }
     @include breakpoint(small) {
-        font-size: 10px;
+        font-size: 12px;
     }
     @include breakpoint(xsmall) {
-        font-size: 8px;
+        font-size: 10px;
     }
     @include breakpoint(xxsmall) {
-        font-size: 6px
+        font-size: 8px
     }
 }
 *,
@@ -91,7 +103,7 @@ html {
 }
 body {
     background-color: $jack;
-    font: 2.25rem/3.375rem $small-font;
+    font: 1.875rem/2.75rem $small-font;
     color: $peter;
     margin: 0;
     padding: 0;
@@ -101,30 +113,28 @@ a {
     text-decoration: none;
 }
 .box {
+    display: none;
     max-width: 66.6%;
-    background-color: $francis;/*
-    @include flexbox;
-    @include flex-direction(column);
-    @include flex-align(flex-start);
-    @include flex-space(space-around);*/
+    background-color: $francis;
     height: 60vh;
     @include auto-center;
     top: 50%;
     transform: translateY(20vh);
     padding: 2rem 4rem;
+    border: none;
     @include breakpoint(small) {
         max-width: 90%;
         height: 80vh;
         transform: translateY(10vh);
-    }/*
-    * {
-        @include flex(0 0 auto);
-    }*/
+    }
 }
 h2 {
     font: 4rem/5.5rem $big-font;
     color: $peter;
     margin: 0;
+    @include breakpoint(xlarge) {
+        padding-top: 1em;
+    }
     @include breakpoint(small) {
         padding-top: 2em;
     }
@@ -132,12 +142,14 @@ h2 {
         padding-top: 0;
     }
 }
-p {
+label {
+    display: block;
     font: inherit;
-    padding: 1rem 0 0;
+    padding: 1.2em 0;
     @include breakpoint(xsmall) {
-        padding: 2em 0 0.5em;
+        padding: 2em 0;
     }
+    margin: 0;
 }
 input:focus {
     outline: none;
@@ -149,4 +161,25 @@ input {
     color: $peter;
     border: none;
     border-bottom: 1px dashed $peter;
+}
+.icon {
+    @include auto-center;
+    width: 100px;
+    padding-top: 0.5em;
+    img {
+        max-width: 100%;
+    }
+    @include breakpoint(xlarge) {
+        padding-top: 2em;
+        width: 160px;
+    }
+    @include breakpoint(xsmall) {
+        width: 80px;
+    }
+}
+.blink {
+    animation: blink 0.5s linear;
+}
+.move-icon {
+    animation: swoosh 0.5s ease-in-out;
 }

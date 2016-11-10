@@ -14,15 +14,28 @@
         <link href="style.css" rel="stylesheet">
     </head>
 
-    <body>
+    <body onload="showForm()">
         <form>
-            <div class="box">
+            <fieldset id="namebox" class="box" >
                 <h2>Signing up?</h2>
-                <p>Let's get to know you. What is your name?</p>
-                <input type="text" class="name" id="name" autofocus>
-            </div>
+                <label for="userName">Let's get to know you. What is your name?</label>
+                <input type="text" class="userName" id="userName" value="">
+            </fieldset>
+            <fieldset class="box" id="emailbox">
+                <h2 id="stepTwoTitle">Cool, <!--val--></h2>
+                <label for ="userEmail">How about an email address so that we can get in touch? No spam, we promise!</label>
+                <input type="email" class="userEmail" id="userEmail" value="">
+            </fieldset>
+            <fieldset class="box" id="confirmbox">
+                <h2>You're all set!</h2>
+                <p>It's lovely to have you on board! Look out for the confirmation email heading your way.</p>
+                <div class="icon">
+                    <img id="confirmation" src="mail-sent.svg" alt="Confirmation mail sent icon">
+                </div>
+            </fieldset>
         </form>
         <!-- Scripts -->
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="form.js"></script>
     </body>
 </html>

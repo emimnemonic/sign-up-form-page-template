@@ -1,3 +1,15 @@
+@keyframes blink {
+  0% {
+    background-color: rgba(255, 0, 0, 0.45); }
+  50% {
+    background-color: red; }
+  100% {
+    background-color: rgba(255, 0, 0, 0.45); } }
+@keyframes swoosh {
+  0% {
+    transform: translateX(-40vw); }
+  100% {
+    transform: translateX(0); } }
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -11,16 +23,16 @@ html {
       font-size: 18px; } }
   @media only screen and (max-width: 980px) {
     html {
-      font-size: 12px; } }
+      font-size: 14px; } }
   @media only screen and (max-width: 767px) {
     html {
-      font-size: 10px; } }
+      font-size: 12px; } }
   @media only screen and (max-width: 480px) and (orientation: portrait) {
     html {
-      font-size: 8px; } }
+      font-size: 10px; } }
   @media only screen and (max-width: 320px) and (orientation: portrait) {
     html {
-      font-size: 6px; } }
+      font-size: 8px; } }
 
 *,
 *:before,
@@ -31,7 +43,7 @@ html {
 
 body {
   background-color: #00A08A;
-  font: 2.25rem/3.375rem "Open Sans", sans-serif;
+  font: 1.875rem/2.75rem "Open Sans", sans-serif;
   color: #F2AD00;
   margin: 0;
   padding: 0; }
@@ -41,23 +53,16 @@ a {
   text-decoration: none; }
 
 .box {
+  display: none;
   max-width: 66.6%;
   background-color: rgba(255, 0, 0, 0.45);
-                           /*
-@include flexbox;
-@include flex-direction(column);
-@include flex-align(flex-start);
-@include flex-space(space-around);*/
   height: 60vh;
   margin-left: auto;
   margin-right: auto;
   top: 50%;
   transform: translateY(20vh);
   padding: 2rem 4rem;
- /*
-* {
-    @include flex(0 0 auto);
-}*/ }
+  border: none; }
   @media only screen and (max-width: 767px) {
     .box {
       max-width: 90%;
@@ -68,6 +73,9 @@ h2 {
   font: 4rem/5.5rem "Oleo Script", cursive;
   color: #F2AD00;
   margin: 0; }
+  @media only screen and (min-width: 1281px) {
+    h2 {
+      padding-top: 1em; } }
   @media only screen and (max-width: 767px) {
     h2 {
       padding-top: 2em; } }
@@ -75,12 +83,14 @@ h2 {
     h2 {
       padding-top: 0; } }
 
-p {
+label {
+  display: block;
   font: inherit;
-  padding: 1rem 0 0; }
+  padding: 1.2em 0;
+  margin: 0; }
   @media only screen and (max-width: 480px) and (orientation: portrait) {
-    p {
-      padding: 2em 0 0.5em; } }
+    label {
+      padding: 2em 0; } }
 
 input:focus {
   outline: none; }
@@ -92,5 +102,26 @@ input {
   color: #F2AD00;
   border: none;
   border-bottom: 1px dashed #F2AD00; }
+
+.icon {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  padding-top: 0.5em; }
+  .icon img {
+    max-width: 100%; }
+  @media only screen and (min-width: 1281px) {
+    .icon {
+      padding-top: 2em;
+      width: 160px; } }
+  @media only screen and (max-width: 480px) and (orientation: portrait) {
+    .icon {
+      width: 80px; } }
+
+.blink {
+  animation: blink 0.5s linear; }
+
+.move-icon {
+  animation: swoosh 0.5s ease-in-out; }
 
 /*# sourceMappingURL=style.css.map */
