@@ -25,14 +25,21 @@ var nameBox = document.getElementById('namebox'),
         any: function () {
             return (isMobile.Android() || isMobile.iOS() || isMobile.BlackBerry() || isMobile.Windows() || isMobile.Opera());
         },
+        isDesktop: function () {
+            if (navigator.platform.indexOf('Mac') > -1 || navigator.platform.indexOf('Win') > -1) {
+                return true;
+            } else {
+                return false;
+            }
+        },
         checkAndroid: function () {
-            if (isMobile.Android() && window.innerWidth <=767) {
+            if (isMobile.Android() && !isMobile.isDesktop()) {
                 nameBox.style.height = "400px";
                 emailBox.style.height = "400px";
             }
         },
         checkMobile: function () {
-            if (!isMobile.any() && window.innerWidth >= 768) {
+            if (!isMobile.any() && isMobile.isDesktop()) {
                 emailInput.focus();
             }
         }
